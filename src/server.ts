@@ -16,8 +16,9 @@ const host = ("RENDER" in process.env) ? `0.0.0.0` : `localhost`;
 
 const app = fastify()
 
+console.log('CORS_ORIGIN:', CORS_ORIGIN, 'Type:', typeof CORS_ORIGIN);
 app.register(cors, {
-  origin: 'http://localhost:5173',
+  origin: CORS_ORIGIN,
   methods: ['POST', 'GET', 'PATCH', 'DELETE'],
   credentials: true,
 })
